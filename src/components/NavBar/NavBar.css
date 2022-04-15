@@ -1,0 +1,21 @@
+.nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    background-color: darkslategrey;
+}
+
+.nav a{
+    padding: 10px;
+    color: white;
+}
+
+.nav a:hover{
+    color:aqua;
+}
+
+.nav li{
+    padding: 1em;
+}
