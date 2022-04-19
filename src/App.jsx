@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/common/NavBar';
+import ItemListContainer from './components/common/ItemListContainer';
 
 function App() {
   return (
     <div className='App'>        
       <header>        
         <NavBar/>  
-        <h1>Photo Shop</h1>
       </header>
+      
+      <ItemListContainer greeting="Bienvenid@ a Photo Shop"/>
     </div>
   );
 }
