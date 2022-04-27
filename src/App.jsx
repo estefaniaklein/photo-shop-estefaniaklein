@@ -7,12 +7,12 @@ import ItemCount from './components/common/ItemCount';
 function App() {
   return (
     <div className='App'>        
-      <header>        
+      <header className="bg-white shadow">        
         <NavBar/>  
       </header>
-      
-      <ItemListContainer greeting="Bienvenid@ a Photo Shop"/>
-      <ItemCount stock={6} minimo={1}/>
+      <main className='items-center'>
+        <ItemListContainer greeting="Bienvenid@ a Photo Shop"/>
+      </main>
     </div>
   );
 }
