@@ -1,5 +1,6 @@
-import { faHandPointLeft } from "@fortawesome/free-solid-svg-icons";
 import {useState} from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag }  from "@fortawesome/free-solid-svg-icons";
 
 function ItemCount({stock, minimo}) {
 
@@ -23,15 +24,15 @@ function ItemCount({stock, minimo}) {
 
     return (
         
-        <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg text-center">
-            <div className="text-xl font-medium text-black">ItemCount        
-                <div className="bg-emerald-500 rounded-full shadow-md space-x-3 my-5">
+        <div className="p-6 max-w-sm mx-auto bg-white text-center">
+            <div className="font-normal text-base text-black">        
+                <div className="bg-emerald-500 rounded-full shadow-md space-x-3 my-5 font-normal">
                         <button onClick={handleResta}>-</button>
-                        <span> {count} </span>
+                        <span className="font-bold"> {count} </span>
                         <button onClick={handleSuma}>+</button>
                 </div>
                 <div>
-                    <button className="rounded-md shadow-lg bg-slate-50 text-emerald-900 p-2" onClick={handleAgregarAlCarrito}>Agregar a mi carrito</button>
+                    <button className="rounded-md shadow-lg bg-slate-50 text-emerald-900 p-2" onClick={handleAgregarAlCarrito}><FontAwesomeIcon icon={faShoppingBag}/> Agregar a mi carrito</button>
                 </div>
             </div>
         </div>

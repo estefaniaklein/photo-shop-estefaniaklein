@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/common/NavBar';
 import ItemListContainer from './components/common/ItemListContainer';
 import ItemCount from './components/common/ItemCount';
+import ItemDetailContainer from './components/common/ItemDetailContainer';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <NavBar/>  
       </header>
       <main className='items-center'>
-        <ItemListContainer greeting="Bienvenid@ a Photo Shop"/>
+        {/* <ItemListContainer greeting="Bienvenid@ a Photo Shop"/> */}
+        <ItemDetailContainer id={3}/>
       </main>
     </div>
   );
