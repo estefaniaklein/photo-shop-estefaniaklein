@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Atribuciones
+['https://www.freepik.es/vectores/logo']
+
+### Dependencias extra
+
+Utilicé Tailwind para los estilos. Lo instalé para probar uan librería que no conocía.

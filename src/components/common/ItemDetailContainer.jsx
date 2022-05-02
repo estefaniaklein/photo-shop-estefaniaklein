@@ -1,28 +1,34 @@
 import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import productosDB from '../../data/productosDB';
 import ItemDetail from './ItemDetail';
 
 
-function getProducto(){
+function getProducto(id){
     return new Promise( (resolve, reject) => {
         setTimeout(() => {
-            resolve(productosDB);
-        }, 2000);
+            const productoFound = productosDB.find( (item) => {
+                return item.id === parseInt(id);
+            })
+            resolve(productoFound);
+        }, 500);
     });
 }
 
-function ItemDetailContainer({id}) {
+function ItemDetailContainer() {
 
     const [producto, setProducto] = useState([]);
 
+    const {photoId} = useParams();
+
     useEffect( () => {
-        getProducto().then(respuestaPromesa => {
-            setProducto(respuestaPromesa[id]);
+        getProducto(photoId).then(respuestaPromesa => {
+            setProducto(respuestaPromesa);
         });
-    },[]);
+    },[photoId])
 
     return (
-        <div className="container max-w-full mx-auto h-screen py-6 px-4 sm:px-6 lg:px-8">
+        <div className="container w-3/4 mx-auto h-screen py-6 px-4 sm:px-6 lg:px-8">
           <ItemDetail producto={producto}/>
         </div>
     );

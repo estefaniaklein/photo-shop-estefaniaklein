@@ -2,42 +2,47 @@ const productosDB = [
     {
         "id": 1,
         "title": "Lake",
-        "description": "Los mejores colores decorando tu ambiente",
+        "description": "Los mejores colores decorando tu ambiente. Fotografía impresa en papel Mate. Tamaño: 15x21",
         "price": "$300",
         "pictureURL": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/08/1.-Moraine_final.jpg?w=400&ssl=1",
-        "stock": 8
+        "stock": 8,
+        "category": "Paisajes"
     },
     {
-        "id": 1,
+        "id": 2,
         "title": "Mountain",
-        "description": "Una imponente montaña al final del camino",
+        "description": "Una imponente montaña al final del camino. Fotografía impresa en papel Glossy Brilloso. Tamaño: 21x30",
         "price": "$500",
         "pictureURL": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/08/8.-B-23.jpg?resize=399%2C600&ssl=1",
-        "stock": 10
+        "stock": 10,
+        "category": "Paisajes"
     },
     {
-        "id": 1,
-        "title": "Winter",
-        "description": "La belleza del invierno y los lagos rodeados de montañas",
+        "id": 3,
+        "title": "Roma",
+        "description": "Todos los caminos conducen a Roma. Fotografía impresa en papel Lienzo. Tamaño: 30x40",
         "price": "$650",
-        "pictureURL": "https://media.istockphoto.com/photos/beautiful-italian-lake-countryside-landscape-view-picture-id1350790521?b=1&k=20&m=1350790521&s=170667a&w=0&h=GFY1Biuj2JcJs4Zaxy7tWPTR3oPPvXIA2eTHT0O8aEQ=",
-        "stock": 5
+        "pictureURL": "https://cdn.pixabay.com/photo/2019/01/20/17/29/rome-3944257_1280.jpg",
+        "stock": 5,
+        "category": "Viajes"
     },
     {
-        "id": 1,
-        "title": "North sky",
-        "description": "Un cielo explotado de estrellas",
+        "id": 4,
+        "title": "Carne",
+        "description": "Bife a cocción lenta. Fotografía impresa en papel Glossy Brilloso. Tamaño: 21x30",
         "price": "$250",
-        "pictureURL": "https://i.pinimg.com/originals/21/81/3b/21813b33eff65e92cfda583db8369369.png",
-        "stock": 3
+        "pictureURL": "https://live.staticflickr.com/1906/30154916417_acd6896f6f_b.jpg",
+        "stock": 3,
+        "category": "Gourmet"
     },
     {
-        "id": 1,
-        "title": "Tree",
-        "description": "Lo simple y bello a la vez",
+        "id": 5,
+        "title": "Tapas",
+        "description": "Delicioso conjunto de tapas a la española. Fotografía impresa en papel Mate. Tamaño: 15x21",
         "price": "$700",
-        "pictureURL": "https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2013/08/7.NZ-TA-Taranaki-Cabbage-Tree-1.jpg?resize=397%2C600&ssl=1",
-        "stock": 7
+        "pictureURL": "https://i0.hippopx.com/photos/941/1003/630/spring-vegetables-comfort-india-preview.jpg",
+        "stock": 7,
+        "category": "Gourmet"
     },
 ];
 

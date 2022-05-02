@@ -25,14 +25,18 @@ function ItemCount({stock, minimo}) {
     return (
         
         <div className="p-6 max-w-sm mx-auto bg-white text-center">
-            <div className="font-normal text-base text-black">        
-                <div className="bg-emerald-500 rounded-full shadow-md space-x-3 my-5 font-normal">
+            <div className="font-normal text-base text-white">        
+                <div className="bg-teal-600 rounded-full shadow-md space-x-3 my-5 font-normal">
                         <button onClick={handleResta}>-</button>
                         <span className="font-bold"> {count} </span>
                         <button onClick={handleSuma}>+</button>
                 </div>
                 <div>
-                    <button className="rounded-md shadow-lg bg-slate-50 text-emerald-900 p-2" onClick={handleAgregarAlCarrito}><FontAwesomeIcon icon={faShoppingBag}/> Agregar a mi carrito</button>
+                    <button className="rounded-md shadow-lg text-teal-900 p-2 m-5 
+                        transition ease-in-out delay-75 bg-slate-50 hover:-translate-y-1 hover:scale-110 hover:bg-lime-600 hover:text-white duration-300" onClick={handleAgregarAlCarrito}>
+                            <FontAwesomeIcon className="px-2" icon={faShoppingBag}/>
+                             Agregar a mi carrito
+                    </button>
                 </div>
             </div>
         </div>
