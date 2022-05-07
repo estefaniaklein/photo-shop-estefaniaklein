@@ -4,7 +4,8 @@ import NavBar from './components/common/NavBar';
 import ItemListContainer from './components/common/ItemListContainer';
 import ItemCount from './components/common/ItemCount';
 import ItemDetailContainer from './components/common/ItemDetailContainer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Cart from './components/common/Cart';
 
 function App() {
   return (
@@ -12,16 +13,17 @@ function App() {
       
      
       <main className='items-center'>   
-        <BrowserRouter>
+        
           <header className="bg-white shadow">        
             <NavBar/>
           </header>
           <Routes>
               <Route path='/' element={<ItemListContainer greeting="Bienvenid@ a Photo Shop"/>} />
+              <Route path='/cart' element={<Cart/>}/>
               <Route path='/category/:categoryId' element={<ItemListContainer/>} />
               <Route path='/photo/:photoId' element= {<ItemDetailContainer/>}/>
           </Routes>
-        </BrowserRouter>
+
       </main>
     </div>
   );
