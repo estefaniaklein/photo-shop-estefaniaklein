@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './NavBar.css';
 import imgLogo from '../../assets/logo/photo_shop_logo.jpg';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
+
     return (
         <nav className="bg-teal-600">           
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +23,7 @@ function NavBar() {
                             </div>
                         </div>
                    
-                    <Link to="/"><CartWidget/></Link>
+                    <Link to="/cart"><CartWidget/></Link>
                 </div>
             </div>           
         </nav>

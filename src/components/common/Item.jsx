@@ -12,7 +12,7 @@ function Item({producto}) {
                     <img src={producto?.pictureURL} alt="photo"/>
                 </div>
                 <div>
-                <p className="p-2">{producto?.price}</p>
+                <p className="p-2">${producto?.price}</p>
                     <Link to={`/photo/${producto.id}`}>
                         <button className="rounded-md shadow-lg text-emerald-900 p-2 m-5 
                         transition ease-in-out delay-75 bg-slate-50 hover:-translate-y-1 hover:scale-110 hover:bg-emerald-600 hover:text-white duration-300">
