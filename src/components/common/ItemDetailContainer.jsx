@@ -11,13 +11,13 @@ function getProducto(id){
                 return item.id === parseInt(id);
             })
             resolve(productoFound);
-        }, 500);
+        }, 1000);
     });
 }
 
 function ItemDetailContainer() {
 
-    const [producto, setProducto] = useState([]);
+    const [producto, setProducto] = useState();
 
     const {photoId} = useParams();
 

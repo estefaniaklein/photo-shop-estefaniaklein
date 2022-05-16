@@ -14,7 +14,7 @@ function getProductos(categoryId){
             }else{
                 resolve(productosDB);
             }
-        }, 500);
+        });
     });
 }
 

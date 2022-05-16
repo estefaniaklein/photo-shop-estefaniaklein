@@ -5,7 +5,7 @@ import ItemListContainer from './components/common/ItemListContainer';
 import ItemCount from './components/common/ItemCount';
 import ItemDetailContainer from './components/common/ItemDetailContainer';
 import { Route, Routes } from 'react-router-dom';
-import Cart from './components/common/Cart';
+import CartView from './components/common/CartView';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           </header>
           <Routes>
               <Route path='/' element={<ItemListContainer greeting="Bienvenid@ a Photo Shop"/>} />
-              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/cart' element={<CartView/>}/>
               <Route path='/category/:categoryId' element={<ItemListContainer/>} />
               <Route path='/photo/:photoId' element= {<ItemDetailContainer/>}/>
           </Routes>
