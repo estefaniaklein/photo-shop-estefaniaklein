@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import productosDB from '../../data/productosDB';
+//import productosDB from '../../data/productosDB';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import {getAllItems as getProductos, getCategoryItems as getProductosCategoria} from '../../data/firebase';
 
-function getProductos(categoryId){
-    return new Promise( (resolve, reject) => {
-        setTimeout(() => {
-            if(categoryId){
-                const filtro = productosDB.filter((producto) => {
-                   return producto.category === categoryId;  
-                });
-                resolve(filtro);
-            }else{
-                resolve(productosDB);
-            }
-        });
-    });
-}
+// function getProductos(categoryId){
+//     return new Promise( (resolve, reject) => {
+//         setTimeout(() => {
+//             if(categoryId){
+//                 const filtro = productosDB.filter((producto) => {
+//                    return producto.category === categoryId;  
+//                 });
+//                 resolve(filtro);
+//             }else{
+//                 resolve(productosDB);
+//             }
+//         });
+//     });
+// }
 
 function ItemListContainer() {
 
@@ -24,9 +25,15 @@ function ItemListContainer() {
     const {categoryId} = useParams();
 
     useEffect( () => {
-        getProductos(categoryId).then(respuestaPromesa => {
-            setProductos(respuestaPromesa);
-        });
+        if(!categoryId){
+            getProductos().then(respuestaPromesa => {
+                setProductos(respuestaPromesa);
+            });
+        }else{
+            getProductosCategoria(categoryId).then(respuestaPromesa => {
+                setProductos(respuestaPromesa);
+            });
+        }
     },[categoryId]);
 
     return (

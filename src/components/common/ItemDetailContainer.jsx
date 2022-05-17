@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import productosDB from '../../data/productosDB';
+//import productosDB from '../../data/productosDB';
 import ItemDetail from './ItemDetail';
+import {getItemById as getProducto} from '../../data/firebase';
 
-
-function getProducto(id){
-    return new Promise( (resolve, reject) => {
-        setTimeout(() => {
-            const productoFound = productosDB.find( (item) => {
-                return item.id === parseInt(id);
-            })
-            resolve(productoFound);
-        }, 1000);
-    });
-}
+// function getProducto(id){
+//     return new Promise( (resolve, reject) => {
+//         setTimeout(() => {
+//             const productoFound = productosDB.find( (item) => {
+//                 return item.id === parseInt(id);
+//             })
+//             resolve(productoFound);
+//         }, 1000);
+//     });
+// }
 
 function ItemDetailContainer() {
 
