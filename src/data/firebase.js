@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore, doc, getDoc, query, where, collection, getDocs} from 'firebase/firestore/lite'
+import {getFirestore, doc, getDoc, query, where, collection, getDocs, addDoc, Timestamp} from 'firebase/firestore/lite'
+// import { useState } from "react";
+// import useCartContext from "../../store/CartContext";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,6 +16,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const firestoreDB = getFirestore(app);
+
+
 
 export default firestoreDB;
 
@@ -56,4 +60,20 @@ export async function getItemById(itemId){
         ...productoSnapshot.data(),
         id: productoSnapshot.id
     }
+}
+
+export async function sendOrder(orden){    
+    
+    const miColeccion = collection(firestoreDB, 'ordenes');
+
+    const fechaOrden = Timestamp.now();
+    const ordenHoy = {
+        ...orden,
+        date: fechaOrden
+    }
+
+    const order = await addDoc(miColeccion, ordenHoy);
+
+    return order.id;
+ 
 }

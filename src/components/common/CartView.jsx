@@ -1,11 +1,51 @@
-import { faHome, faTrash, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faCreditCard, faHome, faTrash, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import useCartContext from "../../store/CartContext";
-
+import {sendOrder} from '../../data/firebase';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 function CartView() {
     const {clearCart, removeProductFromCart, itemsInCart, saleTotalPrice, carrito} = useCartContext();
+
+    function handleSale(){
+
+        const buyer = {
+            name: "Marta",
+            phone: 1234567890,
+            email: "marta@example.com"
+        };
+
+        const total = saleTotalPrice();
+        
+        const items = carrito.map(({id, title, price})=>{ 
+    
+            return {id, title, price};
+          
+          });
+    
+        const orden ={
+            buyer,
+            items,
+            total
+        };
+    
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
+            title: <p>Enviando orden de compra...</p>,
+            didOpen: () => {
+              MySwal.showLoading()
+            },
+          })
+        
+          sendOrder(orden)
+            .then(idOrden => {
+                return MySwal.fire(<p>Gracias por su compra, El número de orden es: {idOrden}</p>)
+            });        
+       
+        clearCart();
+    }
 
     if(carrito.length === 0){
         return(
@@ -62,13 +102,23 @@ function CartView() {
                 <h2 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center py-4">Cantidad de items en el carrito: {itemsInCart()} </h2>
                 
                 <h2 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center py-4">Costo Total: ${saleTotalPrice()} </h2>
-                <button className="text-center rounded-md shadow-lg text-red-900 p-2 m-5 
-                    transition ease-in-out delay-75 bg-slate-50 
-                    hover:-translate-y-1 hover:scale-110 hover:bg-red-900 hover:text-white duration-300"
-                    onClick={clearCart}>
-                    <FontAwesomeIcon className="px-1" icon={faTrash}/>
-                    Limpiar Carrito
-                </button>
+                <div className="flex flex-inline">
+                    <button className="text-center rounded-md shadow-lg text-red-900 p-2 m-5 
+                        transition ease-in-out delay-75 bg-slate-50 
+                        hover:-translate-y-1 hover:scale-110 hover:bg-red-900 hover:text-white duration-300"
+                        onClick={clearCart}>
+                        <FontAwesomeIcon className="px-1" icon={faTrash}/>
+                        Limpiar Carrito
+                    </button>
+                    <button className="text-center rounded-md shadow-lg text-yellow-200 p-2 m-5 
+                            transition ease-in-out delay-75 bg-teal-800 
+                            hover:-translate-y-1 hover:scale-110 hover:bg-yellow-200 hover:text-teal-800 duration-300"
+                            onClick={handleSale}>
+                            <FontAwesomeIcon className="px-1" icon={faCreditCard}/>
+                            Hacer pedido
+                    </button>
+                    
+                </div>
             </div>
         );
     }    

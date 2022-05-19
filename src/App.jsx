@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/common/NavBar';
 import ItemListContainer from './components/common/ItemListContainer';
-import ItemCount from './components/common/ItemCount';
 import ItemDetailContainer from './components/common/ItemDetailContainer';
 import { Route, Routes } from 'react-router-dom';
 import CartView from './components/common/CartView';
+import OrderForm from './components/common/OrderForm';
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
               <Route path='/cart' element={<CartView/>}/>
               <Route path='/category/:categoryId' element={<ItemListContainer/>} />
               <Route path='/photo/:photoId' element= {<ItemDetailContainer/>}/>
+              {/* <Route path='/order' element= {<OrderForm/>}/> */}
           </Routes>
 
       </main>
