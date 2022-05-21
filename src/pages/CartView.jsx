@@ -1,10 +1,10 @@
 import { faCreditCard, faHome, faTrash, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import useCartContext from "../../store/CartContext";
-import {sendOrder} from '../../data/firebase';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import useCartContext from "../store/CartContext";
+import {sendOrder} from '../services/firebase';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 function CartView() {
     const {clearCart, removeProductFromCart, itemsInCart, saleTotalPrice, carrito} = useCartContext();
@@ -66,7 +66,7 @@ function CartView() {
                 <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center py-4">Tu Carrito</h5>                 
                 <div className="w-6/12 bg-white rounded-lg border shadow-md sm:p-4 dark:bg-gray-800 dark:border-gray-700">                    
                     <div className="flow-root">
-                        <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-700">
+                        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
 
                         {carrito.map( producto => {
                             return(
@@ -74,7 +74,7 @@ function CartView() {
                                 <li key={producto.id} className="py-3 sm:py-4">
                                     <div className="flex justify-center space-x-8">
                                         <div className="flex-shrink-0">
-                                            <img className="w-20 h-20 rounded-full" src={producto.pictureURL} alt="Neil image"/>
+                                            <img className="w-20 h-20 rounded-full" src={producto.pictureURL} alt={producto.title}/>
                                         </div>
                                          <div className="inline-flex items-center">
                                             <p className="text-sm font-medium text-gray-900 truncate dark:text-white m-2">

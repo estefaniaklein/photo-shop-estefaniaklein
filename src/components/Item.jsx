@@ -9,7 +9,7 @@ function Item({producto}) {
             <div className="text-sm font-medium text-black">
                 <p className="p-2 ">{producto?.title}</p>  
                 <div className="mx-8 my-4 max-h-fit">
-                    <img src={producto?.pictureURL} alt="photo"/>
+                    <img src={producto?.pictureURL} alt={producto?.title}/>
                 </div>
                 <div>
                 <p className="p-2">${producto?.price}</p>

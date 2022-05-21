@@ -7,15 +7,11 @@ function ItemCount({stock, minimo, onAdd}) {
     const [count, setCount] = useState(minimo);
 
     function handleSuma(){
-        {
-            count < stock && setCount(count + 1);
-        }
+       count < stock && setCount(count + 1);
     }
 
     function handleResta(){
-        {
-            count > minimo && setCount(count - 1);
-        }
+        count > minimo && setCount(count - 1);
     }
 
     return (

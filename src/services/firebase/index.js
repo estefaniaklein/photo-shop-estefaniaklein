@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore, doc, getDoc, query, where, collection, getDocs, addDoc, Timestamp} from 'firebase/firestore/lite'
-// import { useState } from "react";
-// import useCartContext from "../../store/CartContext";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,9 +15,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const firestoreDB = getFirestore(app);
 
-
-
 export default firestoreDB;
+
+export async function getCategories(){
+    const miColeccion = collection(firestoreDB, 'categorias');
+
+    const categoriasSnapshot = await getDocs(miColeccion);
+    return categoriasSnapshot.docs.map(doc => {
+        return {
+            ...doc.data(),
+            id: doc.id
+        }
+    });
+}
+
+export async function getCategoryName(categoryId){
+    const miColeccion = collection(firestoreDB, 'categorias');
+
+    const categoriaRef = doc(miColeccion, categoryId);
+
+    const categoriaSnapshot = await getDoc(categoriaRef);
+
+    return categoriaSnapshot.data().nombre;
+    
+}
 
 export async function getAllItems(){
     const miColeccion = collection(firestoreDB, 'productos');
