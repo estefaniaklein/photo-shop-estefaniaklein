@@ -18,6 +18,8 @@ Desarrollarás una app de un e-commerce para poder vender productos de un rubro 
 * Se utilizó [Sweetalert2](https://sweetalert2.github.io), para el mensaje de confirmación de compra.
 * Iconos de [Fontawesome](https://fontawesome.com/icons)
 * Base de datos con [Firebase](https://firebase.google.com)
+* Deploy realizado con [Vercel](https://vercel.com)
+    * [Proyecto Photo Shop](https://photo-shop-estefaniaklein.vercel.app/)
 
 ## Atribuciones
 Las imágenes utilizadas en el proyecto las utilicé sólo con fines educativos:
